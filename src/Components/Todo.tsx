@@ -10,9 +10,9 @@ export const Todo = ({task, completeTask}:Props) =>{
     <div className="task">
       <div className="content">
         <span>{task.task}</span>
-        <span>{task.deadline}</span>
+        <span>In {task.deadline} day(s)</span>
       </div>
-      <button onClick={()=>{completeTask(task.task)}}>Complete</button>
+      <button className='btn btn-danger'onClick={()=>{completeTask(task.task)}}>Complete</button>
     </div>
     </>
   )

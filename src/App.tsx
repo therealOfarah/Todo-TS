@@ -33,12 +33,12 @@ function App() {
     <div className="App">
       <div className='header'>
         <div className="inputContainer">
-        <input type="text" required placeholder='Task name' value={task} name='task' onChange={handleChange} />
-        <input type="number"   placeholder='Due by' value={deadline} name='deadline' onChange={handleChange} />
+        <input type="text"  autoComplete='off' placeholder='Task name' value={task} name='task' onChange={handleChange} />
+        <input type="number"  placeholder='Due by' value={deadline} name='deadline' onChange={handleChange} />
         </div>
-        <button onClick={addTask}>Add Task</button>
+        <button className='btn btn-primary' onClick={addTask}>Add Task</button>
       </div>
-      <div className='todo' >
+      <div className='todo'>
       {todos.map((task:ITask, key: number)=>{
         return <Todo task={task} key={key} completeTask={completeTask}/>
       })}
