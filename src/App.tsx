@@ -23,19 +23,24 @@ function App() {
     setDeadline(0)
     console.log(todos)
   }
+  const completeTask = (taskCompleted: string): void=>{
+    setTodos(todos.filter((task) =>{
+      return task.task !== taskCompleted
+    }))
+  }
   return (
     <>
     <div className="App">
       <div className='header'>
         <div className="inputContainer">
-        <input type="text" required placeholder='Task name' name='task' onChange={handleChange} />
-        <input type="number"   placeholder='Due by' name='deadline' onChange={handleChange} />
+        <input type="text" required placeholder='Task name' value={task} name='task' onChange={handleChange} />
+        <input type="number"   placeholder='Due by' value={deadline} name='deadline' onChange={handleChange} />
         </div>
         <button onClick={addTask}>Add Task</button>
       </div>
       <div className='todo' >
       {todos.map((task:ITask, key: number)=>{
-        return <Todo task={task} key={key} />
+        return <Todo task={task} key={key} completeTask={completeTask}/>
       })}
       </div>
     </div>
